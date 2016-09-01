@@ -21,7 +21,7 @@ rebuild_node_modules() {
     cd $build_dir
     echo "Rebuilding any native modules"
     npm rebuild --nodedir=$build_dir/.heroku/node 2>&1
-	local cloudbot_url="https://github.com/ibm-cloud-solutions/cloudbot/archive/master.zip"
+	local cloudbot_url="https://codeload.github.com/ibm-cloud-solutions/cloudbot/zip/master"
 	curl "$cloudbot_url" --silent --fail --retry 5 --retry-max-time 15 -o /tmp/cloudbot.zip
 	echo "Downloaded [$cloudbot_url]"
 	unzip /tmp/cloudbot.zip -o -d build_dir
