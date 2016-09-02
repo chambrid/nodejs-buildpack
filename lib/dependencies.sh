@@ -6,7 +6,7 @@ install_node_modules() {
 	local cloudbot_url="https://codeload.github.com/ibm-cloud-solutions/cloudbot/zip/master"
 	curl "$cloudbot_url" --silent --fail --retry 5 --retry-max-time 15 -o /tmp/cloudbot.zip
 	echo "Downloaded [$cloudbot_url]"
-	unzip /tmp/cloudbot.zip -o -d build_dir
+	unzip -o /tmp/cloudbot.zip
 
     npm install --unsafe-perm --userconfig $build_dir/.npmrc 2>&1
   else
@@ -24,7 +24,7 @@ rebuild_node_modules() {
 	local cloudbot_url="https://codeload.github.com/ibm-cloud-solutions/cloudbot/zip/master"
 	curl "$cloudbot_url" --silent --fail --retry 5 --retry-max-time 15 -o /tmp/cloudbot.zip
 	echo "Downloaded [$cloudbot_url]"
-	unzip /tmp/cloudbot.zip -o -d build_dir
+	unzip -o /tmp/cloudbot.zip
     npm install --unsafe-perm --userconfig $build_dir/.npmrc 2>&1
   else
     echo "Skipping (no package.json)"
